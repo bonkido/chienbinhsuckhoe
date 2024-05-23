@@ -10,20 +10,7 @@ import { DatePipe } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  currentTime: string = '';
-
-  constructor(private datePipe: DatePipe) {}
-
-  ngOnInit() {
-    this.updateTime();
-    setInterval(() => {
-      this.updateTime();
-    }, 1000);
-  }
-
-  updateTime() {
-    const formattedTime = this.datePipe.transform(new Date(), 'yyyy-MM-dd HH:mm:ss');
-    this.currentTime = formattedTime !== null ? formattedTime : '';
-  }
+export class AppComponent {
+  currentTime: string = 'Thứ 4 , 14/5/2024 - 14:30:21';
+  
 }
