@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet , HttpClientModule],
   providers: [DatePipe], 
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
@@ -37,4 +40,5 @@ export class AppComponent implements OnInit {
   pad(number: number): string {
     return number < 10 ? '0' + number : number.toString();
   }
+  
 }

@@ -18,22 +18,28 @@
             </div>
             <div class="congthuc-tinh">
                 <div class="chieucao">
-                    <label for="">Nhâp chiều cao</label>
-                    <input type="text" placeholder="...">
-                </div>
+                    <label for="height">Nhập chiều cao</label>
+                    <input type="number" id="height" [(ngModel)]="height" (input)="onHeightChange()">
+                  </div>
                 <div class="cannang">
                     <label for="">Nhập cân nặng</label>
-                    <input type="text" placeholder="...">
+                    <input type="text" [(ngModel)]="weight" placeholder="..." (input)="onWeightChange()">
                 </div>
                 <div class="daubang">
                     <span>=</span>
                 </div>
                 <div class="ketqua">
                     <label for=""></label>
-                    <input type="text" disabled>
+                    <input type="text" placeholder="{{result}}" disabled>
                 </div>
                 <div class="danhgia">
-                    <p>vui lòng nhập bmi của bạn</p>
+                    <!-- <p>vui lòng nhập bmi của bạn</p> -->
+                    <span *ngIf="result > 24.9" class="error">Bạn đang thừa cân roàiii , Gym nhé người anh em</span>
+
+                    <span *ngIf="result > 18.5 && result <= 24.9" class="success">BMI như này thì khối người mê chữ ê kéo dàiiiii</span>
+
+                    <span *ngIf="result <= 18" class="error">Bạn đang bị chê vì thiếu BMI , đừng buồn hãy ăn uống và tập thể dục đều đặn nhé ! hẹn bạn tháng sau quay lại kiểm tra .</span>
+
                 </div>
             </div>
         </div>
