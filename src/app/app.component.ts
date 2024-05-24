@@ -1,7 +1,6 @@
-import { Component, OnInit, OnDestroy} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { DatePipe } from '@angular/common';
-
 
 @Component({
   selector: 'app-root',
@@ -11,33 +10,28 @@ import { DatePipe } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit {
+  title(title: any) {
+    throw new Error('');
+  }
   currentTime: string | undefined;
-  private intervalId: any;
 
   ngOnInit() {
     this.updateCurrentTime();
-    this.intervalId = setInterval(() => this.updateCurrentTime(), 1000);
-  }
-
-  ngOnDestroy() {
-    if (this.intervalId) {
-      clearInterval(this.intervalId);
-    }
   }
 
   updateCurrentTime() {
     const now = new Date();
     const days = ['Chủ nhật', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7'];
-    const day = days[now.getDay()];
-    const date = now.getDate();
+    const day = days[now.getDay()] ;
+    const date = now.getDate() ;
     const month = now.getMonth() ; 
-    const year = now.getFullYear();
-    const hours = now.getHours();
+    const year = now.getFullYear() ;
+    const hours = now.getHours() ;
     const minutes = now.getMinutes() + 1;
     const seconds = now.getSeconds() + 1;
 
-    this.currentTime = `${day}, ${this.pad(date)}/${this.pad(month)}/${year} - ${this.pad(hours)}:${this.pad(minutes)}:${this.pad(seconds)}`;
+    this.currentTime = `${day}, ${date}/${month}/${year} - ${this.pad(hours)}:${this.pad(minutes)}:${this.pad(seconds)}`;
   }
 
   pad(number: number): string {

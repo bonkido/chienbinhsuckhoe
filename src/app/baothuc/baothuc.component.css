@@ -1,0 +1,24 @@
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    color: white;
+  }
+  thead{
+    background-color: #324B4E;
+    color: white;
+  }
+  tbody , tfoot {
+    background-color: #95B0B4;
+  }
+  tfoot {
+    color: black;
+  }
+  th, td {
+    border: 1px solid gray;
+    padding: 8px;
+  }
+  td{
+    font-weight: lighter;
+  }
