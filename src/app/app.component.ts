@@ -1,16 +1,46 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet],
-  providers: [DatePipe], // Đăng ký DatePipe như một provider của component
+  providers: [DatePipe], 
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  currentTime: string = 'Thứ 4 , 14/5/2024 - 14:30:21';
-  
+export class AppComponent implements OnInit, OnDestroy {
+  currentTime: string | undefined;
+  private intervalId: any;
+
+  ngOnInit() {
+    this.updateCurrentTime();
+    this.intervalId = setInterval(() => this.updateCurrentTime(), 1000);
+  }
+
+  ngOnDestroy() {
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
+  }
+
+  updateCurrentTime() {
+    const now = new Date();
+    const days = ['Chủ nhật', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7'];
+    const day = days[now.getDay()];
+    const date = now.getDate();
+    const month = now.getMonth() ; 
+    const year = now.getFullYear();
+    const hours = now.getHours();
+    const minutes = now.getMinutes() + 1;
+    const seconds = now.getSeconds() + 1;
+
+    this.currentTime = `${day}, ${this.pad(date)}/${this.pad(month)}/${year} - ${this.pad(hours)}:${this.pad(minutes)}:${this.pad(seconds)}`;
+  }
+
+  pad(number: number): string {
+    return number < 10 ? '0' + number : number.toString();
+  }
 }
