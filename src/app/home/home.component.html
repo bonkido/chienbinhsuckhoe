@@ -118,28 +118,42 @@
     <div class="table-task">
         <table border="1">
             <thead>
-                <tr>
-                    <th colspan="7" class="task-table">Nhiệm vụ</th>
-                </tr>
+              <tr>
+                <th colspan="7" class="task-table">Nhiệm vụ</th>
+              </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Tên</td>
-                    <td>Nhiệm vụ</td>
-                    <td>Ngày bắt đầu</td>
-                    <td>Ngày kết thúc</td>
-                    <td>Chủ đề</td>
-                    <td>Hoạt động</td>
-                    <td>Chức năng</td>
-                </tr>
+              <tr class="name">
+                <td>Tên</td>
+                <td>Nhiệm vụ</td>
+                <td>Ngày bắt đầu</td>
+                <td>Ngày kết thúc</td>
+                <td>Chủ đề</td>
+                <td>Hoạt động</td>
+                <!-- <td>Chức năng</td> -->
+              </tr>
+              <tr class="thongtin" *ngFor="let t of tasks">
+                <td>{{ t.name }}</td>
+                <td>{{ t.description }}</td>
+                <td>{{ t.startDate }}</td>
+                <td>{{ t.endDate }}</td>
+                <td>{{ t.topic }}</td>
+                <td class="danglam">
+                  Đang làm
+                </td>
+                <!-- <td>
+                  <button class="fix"  (click)="deleteTask(t)">Xóa</button>
+                </td> -->
+              </tr>
             </tbody>
-            <tfoot>
-                <tr>
-                    <th colspan="7">Không có nhiệm vụ nào được giao !</th>
-                </tr>
+            <tfoot *ngIf="tasks.length === 0">
+              <tr>
+                <th colspan="7">Không có nhiệm vụ nào được giao !</th>
+              </tr>
             </tfoot>
-        </table>
+          </table>
     </div>
+    <!-- <app-task [tasks]="tasks"></app-task>  -->
 
     <div class="table-history">
         <table border="1">

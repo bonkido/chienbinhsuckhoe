@@ -4,6 +4,7 @@ import { TaskComponent } from './task/task.component';
 import { BmiComponent } from './bmi/bmi.component';
 import { LichComponent } from './lich/lich.component';
 import { BaothucComponent } from './baothuc/baothuc.component';
+import { ThoitietComponent } from './thoitiet/thoitiet.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -11,5 +12,6 @@ export const routes: Routes = [
     { path: 'bmi', component: BmiComponent },
     { path: 'lich', component: LichComponent },
     { path: 'baothuc', component: BaothucComponent },
-   
+    { path: 'thoitiet', component: ThoitietComponent },
 ];
+

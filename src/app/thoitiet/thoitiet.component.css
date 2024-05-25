@@ -1,0 +1,55 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .weather-info {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .weather-info label {
+    font-weight: bold;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  .search-city{
+    font-size: 18px;
+  }
+  .nhap-city input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .big-city{
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .hinhanh img{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+  }
+  .hotweather , .coldweather{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }

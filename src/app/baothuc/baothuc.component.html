@@ -2,27 +2,84 @@
     <h2>Báo thức</h2>
     <div class="table-task">
         <table border="1">
-            <thead>
-                <tr>
-                    <th colspan="7" class="task-table">Nhiệm vụ</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Tên</td>
-                    <td>Nhiệm vụ</td>
-                    <td>Ngày bắt đầu</td>
-                    <td>Ngày kết thúc</td>
-                    <td>Chủ đề</td>
-                    <td>Hoạt động</td>
-                    <td>Chức năng</td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <th colspan="7">Không có nhiệm vụ nào được giao !</th>
-                </tr>
-            </tfoot>
+          <thead>
+            <tr>
+              <th colspan="8" class="task-table">Nhiệm vụ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="name">
+              <td>Id</td>
+              <td>Tên</td>
+              <td>Nhiệm vụ</td>
+              <td>Ngày bắt đầu</td>
+              <td>Ngày kết thúc</td>
+              <td>Chủ đề</td>
+              <td>Hoạt động</td>
+              <td>Chức năng</td>
+            </tr>
+            <tr class="thongtin" *ngFor="let t of tasks">
+              <td>{{t.id}}</td>
+              <td>{{ t.name }}</td>
+              <td>{{ t.description }}</td>
+              <td>{{ t.startDate }}</td>
+              <td>{{ t.endDate }}</td>
+              <td>{{ t.topic }}</td>
+              <td class="danglam">
+                Đang làm
+              </td>
+              <td>
+                <button  (click)="showAlarmPopup()">Báo thức</button>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot *ngIf="tasks.length === 0">
+            <tr>
+              <th colspan="7">Không có nhiệm vụ nào được giao !</th>
+            </tr>
+          </tfoot>
         </table>
-    </div>
+
+        <div class="popup" *ngIf="showPopup">
+            <div class="popup-content">
+              <span class="close-button" style="cursor: pointer; font-size: 20px;" (click)="hideAlarmPopup()">&times;</span>
+              <div class="creat-task">
+                <form action="" >
+                  <div class="creat-top">
+                      <div class="title">
+                          <h2>Tạo báo thức</h2>
+                      </div>
+                      <div class="tao">
+                        <button type="submit" (click)="showImage()">Tạo</button>
+                        <div *ngIf="showImageContainer" id="image-container">
+                          <img src="assets/images/hocdumtui.jpg" alt="Image" />
+                        </div>
+                      </div>
+                  </div>
+                  <div class="creat-bottom">
+                      <div class="hoten">
+                          <label for="">Thời gian</label> <br>
+                          <input type="text" placeholder="..." [(ngModel)]="task.name" name="name" >
+                      </div>
+                      <div class="nhiemvu">
+                          <label for="">Lời nhắc</label><br>
+                          <input type="text" placeholder="..."[(ngModel)]="task.description" name="description" >
+                      </div>
+                      <div class="ngaybatdau">
+                          <label for="">Ưu tiên</label><br>
+                          <input type="text" name="ngaybatdau" placeholder="..." [(ngModel)]="task.startDate" name="startDate">
+                      </div>
+                      <div class="ngayketthuc">
+                          <label for="">Nhắc sớm</label><br>
+                          <input type="text" name="ngayketthuc" placeholder="..." [(ngModel)]="task.endDate" name="endDate">
+                      </div>
+                      <div class="chude">
+                          <label for="">Lặp lại</label><br>
+                          <input type="text" placeholder="..."  [(ngModel)]="task.topic" name="topic">
+                      </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+        </div>
 </div>

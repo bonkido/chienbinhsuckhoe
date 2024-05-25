@@ -1,0 +1,36 @@
+<div class="container-full">
+   <form action="">
+    <!-- <h2>Thời tiết hiện tại</h2> -->
+    <div class="weather-info">
+        <div class="nhap-city">
+            <label class="search-city">Tìm kiếm thành phố : </label> <br>
+            <input type="text" placeholder="{{ city }}" (input)="onInputChange($event)">
+        </div> <br>
+        <div class="big-city">
+            <div class="city">
+                <label>Thành Phố : </label>
+                <span>{{ city }}</span>
+              </div>
+          <div class="temperature">
+            <label>Nhiệt độ : </label>
+            <span>{{ temperature }}°C</span>
+          </div>
+          <div class="description">
+            <label>Chú thích : </label>
+            <span> {{ description }}</span>
+          </div>
+        </div> <br>
+        <div class="hinhanh">
+            <div class="hotweather" *ngIf="temperature >= 30">
+                <img src="assets/images/thoitietnong.gif" alt="Hot Weather">
+                <span>Nóng như thế này đi bơi với bệu nhé !!!</span>
+            </div>
+            <div class="coldweather" *ngIf="temperature < 30">
+                <img src="assets/images/thoitietlanh.gif" alt="Cold Weather">
+                <span>Thời tiết dạo này lạnh , cần bàn tay ai đó để sưởi ấm </span>
+            </div>
+        </div>
+    </div>
+   </form>
+    <!-- <button (click)="getWeather()">Tìm kiếm</button> -->
+  </div>

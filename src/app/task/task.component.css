@@ -18,9 +18,35 @@ table {
   th, td {
     border: 1px solid gray;
     padding: 8px;
+    
+  }
+  .name{
+    font-weight: bold;
   }
   td{
     font-weight: lighter;
+  }
+  button{
+    background-color: #008286;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  .danglam{
+    color: rgb(82, 12, 0);
+    font-weight: bold;
+  }
+  .thongtin{
+    color: black;
+    font-weight: bold;
   }
   .creat-top{
     display: flex;
